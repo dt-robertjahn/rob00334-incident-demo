@@ -28,10 +28,10 @@ jobs:
                 "status": "succeeded",
                 "result": "pass",
                 "openticket": {
-                  "IncidentUrl": "https://www.google.com/search?q=incidentNum123"
+                  "incidentUrl": "https://www.google.com/search?q=incidentNum123"
                 },
                 "labels": {
-                  "IncidentUrl": "https://www.google.com/search?q=incidentNum123"
+                  "incidentUrl": "https://www.google.com/search?q=incidentNum123"
                  }
               },
               "source": "github",
