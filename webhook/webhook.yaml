@@ -18,3 +18,9 @@ spec:
           '{"type":"{{.type}}","project":"{{.data.project}}","service":"{{.data.service}}","stage":"{{.data.stage}}","shkeptncontext":"{{.shkeptncontext}}","id":"{{.id}}","openticket":{"incidentNumber":"{{.data.openticket.incidentNumber}}","incidentUrl":"{{.data.openticket.incidentUrl}}"}}'
           https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
       subscriptionID: edaef679-8324-453b-84e7-c60dd7f6711a
+    - type: sh.keptn.event.openticket.triggered
+      requests:
+        - curl --request POST --data
+          '{"event_type":"openticket","client_payload":{"type":"{{.type}}","project":"{{.data.project}}","service":"{{.data.service}}","stage":"{{.data.stage}}","shkeptncontext":"{{.shkeptncontext}}","id":"{{.id}}","incident":{"ProblemID":"{{.data.incident.ProblemID}}","ProblemTitle":"{{.data.incident.ProblemTitle}}","ProblemURL":".data.incident.ProblemURL","State":"{{.data.incident.State}}","Tags":"{{.data.incident.Tags}}"}}}'
+          http://34.215.238.225:8080/api/openticket
+      subscriptionID: c0d0f7b9-251d-4438-8122-443d6b1b34d9
