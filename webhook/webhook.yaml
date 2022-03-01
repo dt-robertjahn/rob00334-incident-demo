@@ -4,22 +4,6 @@ metadata:
   name: webhook-configuration
 spec:
   webhooks:
-    - type: sh.keptn.event.openticket.triggered
-      requests:
-        - "curl --header 'Authorization: token
-          {{.env.secret_githubsecret_GITHUBTOKEN}}' --request POST --data
-          '{\"event_type\":\"openticket\",\"client_payload\":{\"type\":\"{{.typ\
-          e}}\",\"project\":\"{{.data.project}}\",\"service\":\"{{.data.service\
-          }}\",\"stage\":\"{{.data.stage}}\",\"shkeptncontext\":\"{{.shkeptncon\
-          text}}\",\"id\":\"{{.id}}\"}}'
-          https://api.github.com/repos/dt-robertjahn/rob00334-incident-demo/dis\
-          patches"
-      envFrom:
-        - name: secret_githubsecret_GITHUBTOKEN
-          secretRef:
-            name: github-secret
-            key: GITHUBTOKEN
-      subscriptionID: c0d0f7b9-251d-4438-8122-443d6b1b34d9
     - type: sh.keptn.event.notify.triggered
       sendFinished: true
       requests:
