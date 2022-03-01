@@ -4,16 +4,6 @@ metadata:
   name: webhook-configuration
 spec:
   webhooks:
-    - type: sh.keptn.event.openticket.finished
-      requests:
-        - "curl --request POST --data '{\"type\": \"{{.type}}\" \"project\":
-          \"{{.data.project}}\", \"service\": \"{{.data.service}}\", \"stage\":
-          \"{{.data.stage}}\", \"shkeptncontext\": \"{{.shkeptncontext}}\",
-          \"id\": \"{{.id}}\", \"openticket\": {   \"incidentNumber\":
-          \"{{.data.openticket.incidentNumber}}\",   \"incidentUrl\":
-          \"{{.data.openticket.incidentUrl}}\"    }}'
-          https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765"
-      subscriptionID: edaef679-8324-453b-84e7-c60dd7f6711a
     - type: sh.keptn.event.openticket.triggered
       requests:
         - "curl --header 'Authorization: token
