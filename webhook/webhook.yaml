@@ -29,14 +29,3 @@ spec:
           roblemURL\",\"State\":\"{{.data.incident.State}}\",\"Tags\":\"{{.data\
           .incident.Tags}}\"}}' http://34.215.238.225:8080/api/openticket"
       subscriptionID: c0d0f7b9-251d-4438-8122-443d6b1b34d9
-    - type: sh.keptn.event.openticket.started
-      requests:
-        - "curl --header 'Content-type: application/json' --request POST --data
-          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
-          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
-          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\",\"incident\
-          \":{\"ProblemID\":\"{{.data.incident.ProblemID}}\",\"ProblemTitle\":\
-          \"{{.data.incident.ProblemTitle}}\",\"ProblemURL\":\".data.incident.P\
-          roblemURL\",\"State\":\"{{.data.incident.State}}\",\"Tags\":\"{{.data\
-          .incident.Tags}}\"}}' http://34.215.238.225:8080/api/openticket"
-      subscriptionID: c7eed10d-dd3e-40f0-a64c-a431516bf69b
