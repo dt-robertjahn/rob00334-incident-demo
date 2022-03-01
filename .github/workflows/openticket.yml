@@ -14,9 +14,10 @@ jobs:
         echo "type": "${{ github.event.client_payload.type }}"
         echo "id": "${{ github.event.client_payload.id }}"
         echo "shkeptncontext": "${{ github.event.client_payload.shkeptncontext }}"
-        echo "dynatraceProblem": "${{ github.event.client_payload.dynatraceProblem }}"
+        echo "ProblemTitle": "${{ github.event.client_payload.dynatraceProblem.ProblemTitle }}"
         echo "ProblemID": "${{ github.event.client_payload.dynatraceProblem.ProblemID }}"
         echo "ProblemURL": "${{ github.event.client_payload.dynatraceProblem.ProblemURL }}"
+        echo "Tags": "${{ github.event.client_payload.dynatraceProblem.Tags }}"
     - name: open ticket
       run: echo "Performing openticketlogic"
     - name: send finished event
