@@ -21,6 +21,7 @@ spec:
             key: GITHUBTOKEN
       subscriptionID: c0d0f7b9-251d-4438-8122-443d6b1b34d9
     - type: sh.keptn.event.notify.triggered
+      sendFinished: true
       requests:
         - curl --request POST --data
           '{"event":"{{.type}}","stage":"{{.data.stage}}","incidentUrl":"{{.data.openticket.incidentUrl}}","result":"{{.data.result}}
