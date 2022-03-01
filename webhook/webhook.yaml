@@ -32,3 +32,9 @@ spec:
             name: github-secret
             key: GITHUBTOKEN
       subscriptionID: c0d0f7b9-251d-4438-8122-443d6b1b34d9
+    - type: sh.keptn.event.openticket.triggered
+      requests:
+        - curl --request POST --data
+          '{"event_type":"openticket","client_payload":{"type":"{{.type}}","project":"{{.data.project}}","service":"{{.data.service}}","stage":"{{.data.stage}}","shkeptncontext":"{{.shkeptncontext}}","id":"{{.id}}","dynatraceProblem":{"ProblemID":"{{.data.dynatraceProblem.ProblemID}}","ProblemTitle":"{{.data.dynatraceProblem.ProblemTitle}}","ProblemURL":"{{.data.dynatraceProblem.ProblemURL}}","State":"{{.data.dynatraceProblem.State}}","Tags":"{{.data.dynatraceProblem.Tags}}"}}}'
+          https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
+      subscriptionID: edaef679-8324-453b-84e7-c60dd7f6711a
