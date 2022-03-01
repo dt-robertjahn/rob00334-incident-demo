@@ -12,3 +12,26 @@ spec:
           ({{.data.evaluation.score}} / 100)"}'
           https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
       subscriptionID: 082734b4-7621-4491-b142-45be85b7547b
+    - type: sh.keptn.event.openticket.triggered
+      requests:
+        - "curl --header 'Authorization: token
+          {{.env.secret_githubsecret_GITHUBTOKEN}}' --request POST --data
+          '{\"event_type\":\"openticket\",\"client_payload\":{\"type\":\"{{.typ\
+          e}}\",\"project\":\"{{.data.project}}\",\"service\":\"{{.data.service\
+          }}\",\"stage\":\"{{.data.stage}}\",\"shkeptncontext\":\"{{.shkeptncon\
+          text}}\",\"id\":\"{{.id}}\",\"dynatraceProblem\":{\"impactLevel\":\"{\
+          {.data.dynatraceProblem.impactLevel}}\",\"severityLevel\":\"{{.data.d\
+          ynatraceProblem.severityLevel}}\",\"startTime\":\"{{.data.dynatracePr\
+          oblem.startTime}}\",\"status\":\"{{.data.dynatraceProblem.status}}\",\
+          \"ProblemID\":\"{{.data.dynatraceProblem.ProblemID}}\",\"ProblemTitle\
+          \":\"{{.data.dynatraceProblem.ProblemTitle}}\",\"ProblemURL\":\"{{.da\
+          ta.dynatraceProblem.ProblemURL}}\",\"State\":\"{{.data.dynatraceProbl\
+          em.State}}\",\"Tags\":\"{{.data.dynatraceProblem.Tags}}\"}}}'
+          https://api.github.com/repos/dt-robertjahn/rob00334-incident-demo/dis\
+          patches"
+      envFrom:
+        - name: secret_githubsecret_GITHUBTOKEN
+          secretRef:
+            name: github-secret
+            key: GITHUBTOKEN
+      subscriptionID: c0d0f7b9-251d-4438-8122-443d6b1b34d9
