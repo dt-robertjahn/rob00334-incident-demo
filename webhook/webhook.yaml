@@ -31,3 +31,11 @@ spec:
           eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\"}'
           http://34.215.238.225:8080/runtask"
       subscriptionID: 221ad77a-229d-4594-ae30-29820521fb38
+    - type: sh.keptn.event.deployment.triggered
+      requests:
+        - "curl --header 'Content-type: application/json' --request POST --data
+          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
+          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
+          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\"}'
+          http://34.215.238.225:8080/runtask"
+      subscriptionID: 2803e5e9-3e82-4528-929f-386f670fabf5
