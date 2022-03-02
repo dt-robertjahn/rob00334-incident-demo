@@ -23,3 +23,11 @@ spec:
           roblemURL\",\"State\":\"{{.data.incident.State}}\",\"Tags\":\"{{.data\
           .incident.Tags}}\"}}' http://34.215.238.225:8080/runtask"
       subscriptionID: c0d0f7b9-251d-4438-8122-443d6b1b34d9
+    - type: sh.keptn.event.test.triggered
+      requests:
+        - "curl --header 'Content-Type: application/json' --request POST --data
+          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
+          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
+          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\"}'
+          http://34.215.238.225:8080/runtask"
+      subscriptionID: 221ad77a-229d-4594-ae30-29820521fb38
