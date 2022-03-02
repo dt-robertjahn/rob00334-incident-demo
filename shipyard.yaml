@@ -9,6 +9,8 @@ spec:
     - name: incident
       tasks:
       - name: openticket
+      - name: test
+      - name: deployment
       - name: evaluation
         properties:
           timeframe: "5m"
