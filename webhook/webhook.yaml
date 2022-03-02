@@ -12,12 +12,6 @@ spec:
           100)"},"incident":{"ProblemID":"{{.data.incident.ProblemID}}","ProblemTitle":"{{.data.incident.ProblemTitle}}","ProblemURL":"{{.data.incident.ProblemURL}}","State":"{{.data.incident.State}}","Tags":"{{.data.incident.Tags}}"}}'
           https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
       subscriptionID: 082734b4-7621-4491-b142-45be85b7547b
-    - type: sh.keptn.event.openticket.finished
-      requests:
-        - curl --request POST --data
-          '{"type":"{{.type}}","project":"{{.data.project}}","service":"{{.data.service}}","stage":"{{.data.stage}}","shkeptncontext":"{{.shkeptncontext}}","id":"{{.id}}","openticket":{"incidentNumber":"{{.data.openticket.incidentNumber}}","incidentUrl":"{{.data.openticket.incidentUrl}}"}}'
-          https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
-      subscriptionID: edaef679-8324-453b-84e7-c60dd7f6711a
     - type: sh.keptn.event.openticket.triggered
       requests:
         - "curl --header 'Content-Type: application/json' --request POST --data
