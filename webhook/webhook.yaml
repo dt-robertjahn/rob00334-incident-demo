@@ -25,3 +25,12 @@ spec:
           http://34.215.238.225:8080/runtask"
       subscriptionID: 733a05c2-b801-4570-98c7-c592800dfe95
       sendFinished: false
+    - type: sh.keptn.event.test.triggered
+      requests:
+        - "curl --header 'Content-Type: application/json' --request POST --data
+          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
+          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
+          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\"}'
+          http://34.215.238.225:8080/runtask"
+      subscriptionID: 8c627ea3-2c95-4869-a11e-bc092588c483
+      sendFinished: false
