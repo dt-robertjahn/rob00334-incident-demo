@@ -11,7 +11,6 @@ spec:
       - name: openticket
       - name: test
       - name: deployment
-      - name: release
       - name: evaluation
         properties:
           timeframe: "5m"
