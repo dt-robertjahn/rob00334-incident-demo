@@ -16,12 +16,3 @@ spec:
           .incident.Tags}}\"}}' http://34.215.238.225:8080/runtask"
       subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
       sendFinished: false
-    - type: sh.keptn.event.test.triggered
-      requests:
-        - "curl --header 'Content-Type: application/json' --request POST --data
-          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
-          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
-          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\"}'
-          http://34.215.238.225:8080/runtask"
-      subscriptionID: 8c627ea3-2c95-4869-a11e-bc092588c483
-      sendFinished: false
