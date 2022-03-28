@@ -4,26 +4,6 @@ metadata:
   name: webhook-configuration
 spec:
   webhooks:
-    - type: sh.keptn.event.openticket.triggered
-      requests:
-        - "curl --header 'Content-Type: application/json' --request POST --data
-          '{\"type\":\"{{.type}}\",\"shkeptncontext\":\"{{.shkeptncontext}}\",\
-          \"id\":\"{{.id}}\",\"data\":{\"project\":\"{{.data.project}}\",\"serv\
-          ice\":\"{{.data.service}}\",\"stage\":\"{{.data.stage}}\",\"bridge\":\
-          \"{{.env.secret_bridge_url}}/project/{{.data.project}}/sequence/{{.sh\
-          keptncontext}}\",\"incident\":{\"ProblemID\":\"{{.data.incident.Probl\
-          emID}}\",\"Tags\":\"{{.data.incident.Tags}}\",\"ProblemTitle\":\"{{.d\
-          ata.incident.ProblemTitle}}\",\"State\":\"{{.data.incident.State}}\"}\
-          }}'
-          https://automation.atlassian.com/pro/hooks/f43475548fea82de26cacbe3dd\
-          4b7c1ced7638ff"
-      envFrom:
-        - name: secret_bridge_url
-          secretRef:
-            name: bridge
-            key: url
-      subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
-      sendFinished: false
     - type: sh.keptn.event.notify.triggered
       requests:
         - curl --request POST --data
