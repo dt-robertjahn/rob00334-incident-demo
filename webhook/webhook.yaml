@@ -24,3 +24,10 @@ spec:
             key: url
       subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
       sendFinished: false
+    - type: sh.keptn.event.notify.triggered
+      requests:
+        - curl --request POST --data
+          '{"project":"{{.data.project}}","service":"{{.data.service}}","stage":"{{.data.stage}}","incident":{"ProblemID":"{{.data.incident.ProblemID}}","ProblemTitle":"{{.data.incident.ProblemTitle}}","State":"{{.data.incident.State}}","Tags":"{{.data.incident.Tags}}"},"openticket":{"incidentUrl":"{{.data.openticket.incidentUrl}}","incidentNumber":"{{.data.openticket.incidentNumber}}"}}'
+          https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
+      subscriptionID: e335d827-0ed0-4349-a50b-e51284359394
+      sendFinished: true
