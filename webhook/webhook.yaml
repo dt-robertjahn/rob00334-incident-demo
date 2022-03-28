@@ -4,18 +4,6 @@ metadata:
   name: webhook-configuration
 spec:
   webhooks:
-    - type: sh.keptn.event.openticket.triggered
-      requests:
-        - "curl --header 'Content-Type: application/json' --request POST --data
-          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
-          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
-          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\",\"incident\
-          \":{\"ProblemID\":\"{{.data.incident.ProblemID}}\",\"ProblemTitle\":\
-          \"{{.data.incident.ProblemTitle}}\",\"ProblemURL\":\".data.incident.P\
-          roblemURL\",\"State\":\"{{.data.incident.State}}\",\"Tags\":\"{{.data\
-          .incident.Tags}}\"}}' http://34.215.238.225:8080/runtask"
-      subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
-      sendFinished: false
     - type: sh.keptn.event.notify.triggered
       requests:
         - curl --request POST --data
