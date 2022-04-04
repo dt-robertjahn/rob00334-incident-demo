@@ -11,27 +11,3 @@ spec:
           https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
       subscriptionID: e335d827-0ed0-4349-a50b-e51284359394
       sendFinished: true
-    - type: sh.keptn.event.openticket.triggered
-      requests:
-        - "curl --header 'Content-Type: application/json' --request POST --data
-          '{  \"type\": \"{{.type}}\",  \"shkeptncontext\":
-          \"{{.shkeptncontext}}\",  \"id\": \"{{.id}}\",  \"data\":
-          {    \"project\": \"{{.data.project}}\",    \"service\":
-          \"{{.data.service}}\",    \"stage\":
-          \"{{.data.stage}}\",    \"bridge\":
-          \"{{.env.secret_bridge_url}}/project/{{.data.project}}/sequence/{{.sh\
-          keptncontext}}\",    \"incident\": {      \"ProblemID\":
-          \"{{.data.incident.ProblemID}}\",      \"ProblemURL\":
-          \"{{.data.incident.ProblemURL}}\"      \"Tags\":
-          \"{{.data.incident.Tags}}\",      \"ProblemTitle\":
-          \"{{.data.incident.ProblemTitle}}\",      \"State\":
-          \"{{.data.incident.State}}\"    }  }}'
-          https://automation.atlassian.com/pro/hooks/f43475548fea82de26cacbe3dd\
-          4b7c1ced7638ff"
-      envFrom:
-        - name: secret_bridge_url
-          secretRef:
-            name: bridge
-            key: url
-      subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
-      sendFinished: false
