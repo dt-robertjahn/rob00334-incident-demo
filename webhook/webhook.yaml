@@ -31,3 +31,19 @@ spec:
             key: url
       subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
       sendFinished: false
+    - type: sh.keptn.event.notify.triggered
+      requests:
+        - >
+          curl --header 'Authorization: Api-Token
+          {{.env.secret_dynatraceproblemcomment_token}}' --header 'Content-Type:
+          application/json' --request POST --data '{"comment":"This is a
+          comment!","user":"cloud-automation","context":"cloud-automation-webhook"}'
+          https://syh360.dynatrace-managed.com/e/1c819cc7-d7f5-40d9-b90f-b80c8610a392/api/v2/problems/{{
+          .data.incident.ProblemID }}/comments
+      envFrom:
+        - name: secret_dynatraceproblemcomment_token
+          secretRef:
+            name: dynatrace-problem-comment
+            key: token
+      subscriptionID: 9b8f7fb2-7deb-419c-b8ec-28c8bae3827f
+      sendFinished: true
