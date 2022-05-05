@@ -6,11 +6,11 @@ spec:
   stages:
   - name: production
     sequences:
-    - name: incident
+    - name: incident1
       tasks:
       - name: openticket
       - name: notify
-    - name: incident1
+    - name: incident
       tasks:
       - name: openticket
       - name: evaluation
