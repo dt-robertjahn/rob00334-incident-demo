@@ -47,3 +47,28 @@ spec:
             key: url
       subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
       sendFinished: false
+    - type: sh.keptn.event.openticket.triggered
+      requests:
+        - "curl --header 'Content-Type: application/json' --request POST --data
+          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
+          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
+          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\",\"incident\
+          \":{\"ProblemID\":\"{{.data.incident.ProblemID}}\",\"ProblemTitle\":\
+          \"{{.data.incident.ProblemTitle}}\",\"PID\":\"{{.data.incident.PID}}\
+          \",\"ProblemURL\":\"{{.data.incident.ProblemURL}}\",\"State\":\"{{.da\
+          ta.incident.State}}\",\"Tags\":\"{{.data.incident.Tags}}\",\"bridgeURL\
+          \":\"{{.env.secret_bridge_url}}/project/{{.data.project}}/sequence/{{\
+          .shkeptncontext}}\"}}'
+          https://events.pagerduty.com/x-ere/{{.env.secret_pagerduty_integratio\
+          nkey}}"
+      envFrom:
+        - name: secret_pagerduty_integrationkey
+          secretRef:
+            name: pagerduty
+            key: integration-key
+        - name: secret_bridge_url
+          secretRef:
+            name: bridge
+            key: url
+      subscriptionID: cf4bcc2b-f198-40fb-a7a1-0a94e6d9bd5d
+      sendFinished: false
