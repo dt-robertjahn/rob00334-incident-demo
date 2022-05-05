@@ -26,3 +26,23 @@ spec:
             key: token
       subscriptionID: 9b8f7fb2-7deb-419c-b8ec-28c8bae3827f
       sendFinished: true
+    - type: sh.keptn.event.openticket.triggered
+      requests:
+        - "curl --header 'Content-Type: application/json' --request POST --data
+          '{\"type\":\"{{.type}}\",\"shkeptncontext\":\"{{.shkeptncontext}}\",\
+          \"id\":\"{{.id}}\",\"data\":{\"project\":\"{{.data.project}}\",\"serv\
+          ice\":\"{{.data.service}}\",\"stage\":\"{{.data.stage}}\",\"bridge\":\
+          \"{{.env.secret_bridge_url}}/project/{{.data.project}}/sequence/{{.sh\
+          keptncontext}}\",\"incident\":{\"ProblemID\":\"{{.data.incident.Probl\
+          emID}}\",\"ProblemURL\":\"{{.data.incident.ProblemURL}}\",\"Tags\":\"\
+          {{.data.incident.Tags}}\",\"ProblemTitle\":\"{{.data.incident.Problem\
+          Title}}\",\"State\":\"{{.data.incident.State}}\"}}}'
+          https://automation.atlassian.com/pro/hooks/f43475548fea82de26cacbe3dd\
+          4b7c1ced7638ff"
+      envFrom:
+        - name: secret_bridge_url
+          secretRef:
+            name: bridge
+            key: url
+      subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
+      sendFinished: false
