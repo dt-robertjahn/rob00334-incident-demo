@@ -46,22 +46,3 @@ spec:
             key: url
       subscriptionID: 385c73cc-ff32-4c56-b46e-f939e145990a
       sendFinished: false
-    - type: sh.keptn.event.openticket.triggered
-      requests:
-        - "curl --header 'Content-Type: application/json' --request POST --data
-          '{\"data\":{\"project\":\"{{.data.project}}\",\"service\":\"{{.data.s\
-          ervice}}\",\"stage\":\"{{.data.stage}}\"},\"shkeptncontext\":\"{{.shk\
-          eptncontext}}\",\"id\":\"{{.id}}\",\"type\":\"{{.type}}\",\"incident\
-          \":{\"ProblemID\":\"{{.data.incident.ProblemID}}\",\"ProblemTitle\":\
-          \"{{.data.incident.ProblemTitle}}\",\"ProblemURL\":\".data.incident.P\
-          roblemURL\",\"State\":\"{{.data.incident.State}}\",\"Tags\":\"{{.data\
-          .incident.Tags}}\"}}'
-          https://events.pagerduty.com/v2/enqueue/{{.env.secret_pagerduty_integ\
-          rationkey}}"
-      envFrom:
-        - name: secret_pagerduty_integrationkey
-          secretRef:
-            name: pagerduty
-            key: integration-key
-      subscriptionID: cf4bcc2b-f198-40fb-a7a1-0a94e6d9bd5d
-      sendFinished: false
