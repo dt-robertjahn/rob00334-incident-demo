@@ -72,28 +72,3 @@ spec:
             key: url
       subscriptionID: cf4bcc2b-f198-40fb-a7a1-0a94e6d9bd5d
       sendFinished: false
-    - type: sh.keptn.event.notify.triggered
-      requests:
-        - "curl --header 'Accept: application/vnd.pagerduty+json' --header
-          'Authorization: Token token={{.env.secret_pagerduty_apitoken}}'
-          --header 'Content-Type: application/json' --header 'From:
-          rob.jahn@dynatrace.com' --request POST --data '{  \"note\":
-          {        \"content\": \"SLO Evaluation for Project:
-          {{.data.project}}\\nService: {{.data.service}}\\nStage:
-          {{.data.stage}}\\nResult\": \"{{.data.evaluation.result}}\\nScore\":
-          \"{{.data.evaluation.score}}\\nBridge:
-          {{.env.secret_bridge_url}}/evaluation/{{.shkeptncontext}}/{{.data.sta\
-          ge}}\"  }}'
-          https://api.pagerduty.com/incidents/{{.data.openticket.incidentID}}/n\
-          otes"
-      envFrom:
-        - name: secret_bridge_url
-          secretRef:
-            name: bridge
-            key: url
-        - name: secret_pagerduty_apitoken
-          secretRef:
-            name: pagerduty
-            key: api-token
-      subscriptionID: 32adcf5e-c436-4cc2-ac19-89f36bfb0bcc
-      sendFinished: true
