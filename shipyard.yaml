@@ -6,10 +6,11 @@ spec:
   stages:
   - name: production
     sequences:
-    - name: incident1
+    - name: getslo
       tasks:
-      - name: openticket
-      - name: notify
+      - name: evaluation
+        properties:
+          timeframe: "5m"
     - name: incident
       tasks:
       - name: openticket
