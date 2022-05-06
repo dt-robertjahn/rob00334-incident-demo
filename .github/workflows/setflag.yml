@@ -1,0 +1,43 @@
+name: webhook interactive example
+on:
+  repository_dispatch:
+    types: 
+      - setfeature
+jobs:
+  openticket:
+    name: openticket
+    runs-on: ubuntu-latest
+    steps:
+    - name: show client_payload
+      run: |
+        echo "Received webhook displaying client_payload data"
+        echo "type": "${{ github.event.client_payload.type }}"
+        echo "id": "${{ github.event.client_payload.id }}"
+        echo "shkeptncontext": "${{ github.event.client_payload.shkeptncontext }}"
+        echo "feature": "${{ github.event.client_payload.feature }}"
+    - name: set feature
+      run: |
+        echo "Setting feature to number: ${{ github.event.client_payload.feature }}"
+        curl ${{ secrets.APP_BASE_URL }}/api/feature?newFeatureNumber=${{ github.event.client_payload.feature }}
+    - name: send finished event
+      run: |
+        echo "Received interactive webhook, will send back finished event"
+        json=$(cat <<-END
+            {
+              "data": {
+                "project":"${{ github.event.client_payload.project }}",
+                "stage": "${{ github.event.client_payload.stage}}",
+                "service": "${{ github.event.client_payload.service}}",
+                "status": "succeeded",
+                "result": "pass"
+              },
+              "source": "github",
+              "specversion": "1.0",
+              "type": "sh.keptn.event.setfeature.finished",
+              "shkeptncontext": "${{ github.event.client_payload.shkeptncontext }}",
+              "triggeredid": "${{ github.event.client_payload.id }}"
+            }
+        END
+        )
+        echo "json=$json"
+        curl -X POST "${{ secrets.KEPTN_BASE_URL }}/api/v1/event" -H "Content-Type: application/json" -H "accept: application/json" -H "x-token: ${{ secrets.KEPTN_API_TOKEN }}" -d "$json"
