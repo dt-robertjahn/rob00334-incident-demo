@@ -61,9 +61,11 @@ objectives:
   - criteria:
     - <+10%
     - <2
-  warning: []
+  warning:
+  - criteria:
+    - <1
   weight: 1
-  key_sli: false
+  key_sli: true
 - sli: svc_tp_min
   displayName: ""
   pass:
@@ -87,20 +89,20 @@ objectives:
   displayName: ""
   pass:
   - criteria:
-    - <20
+    - <50
   warning:
   - criteria:
-    - <50
+    - <70
   weight: 1
   key_sli: false
 - sli: host_disk_queue
   displayName: ""
   pass:
   - criteria:
-    - <=0
+    - <=1
   warning:
   - criteria:
-    - <1
+    - <2
   weight: 1
   key_sli: false
 - sli: svc2svc_calls
