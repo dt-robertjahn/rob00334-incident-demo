@@ -82,3 +82,20 @@ spec:
             key: api-token
       subscriptionID: 32adcf5e-c436-4cc2-ac19-89f36bfb0bcc
       sendFinished: true
+    - type: sh.keptn.event.notifyticket.triggered
+      requests:
+        - "curl --header 'Authorization: Api-Token
+          {{.env.secret_dynatraceproblemcomment_token}}' --header 'Content-Type:
+          application/json' --request POST --data '{\"message\":\"Opened
+          Incident
+          [PagerDuty]({{.data.openticket.incidentURL}})\",\"context\":\"cloud-a\
+          utomation-webhook\"}'
+          https://syh360.dynatrace-managed.com/e/1c819cc7-d7f5-40d9-b90f-b80c86\
+          10a392/api/v2/problems/{{.data.incident.PID}}/comments"
+      envFrom:
+        - name: secret_dynatraceproblemcomment_token
+          secretRef:
+            name: dynatrace-problem-comment
+            key: token
+      subscriptionID: 9b8f7fb2-7deb-419c-b8ec-28c8bae3827f
+      sendFinished: true
