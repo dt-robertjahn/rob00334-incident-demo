@@ -5,7 +5,7 @@ on:
       - setfeature
 jobs:
   openticket:
-    name: openticket
+    name: setfeature
     runs-on: ubuntu-latest
     steps:
     - name: show client_payload
