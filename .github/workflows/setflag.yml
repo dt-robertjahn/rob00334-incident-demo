@@ -1,4 +1,4 @@
-name: webhook interactive example
+name: set feature flag
 on:
   repository_dispatch:
     types: 
