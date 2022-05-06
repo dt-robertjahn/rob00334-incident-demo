@@ -3,7 +3,7 @@ name: Manual set feature
 on:
   workflow_dispatch:
     inputs:
-      name:
+      feature:
         description: 'Feature Number to set'
         default: '1'
         required: true
