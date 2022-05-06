@@ -4,15 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Feature to set'
+        description: 'Feature Number to set'
         default: '1'
         required: true
 
-name: set feature flag
-on:
-  repository_dispatch:
-    types: 
-      - setfeature
 jobs:
   openticket:
     name: setfeature
