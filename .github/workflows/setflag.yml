@@ -29,7 +29,13 @@ jobs:
                 "stage": "${{ github.event.client_payload.stage}}",
                 "service": "${{ github.event.client_payload.service}}",
                 "status": "succeeded",
-                "result": "pass"
+                "result": "pass",
+                "setfeature": {
+                  "gitHubURL": "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+                },
+                "labels": {
+                  "gitHubURL": "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+                }
               },
               "source": "github",
               "specversion": "1.0",
