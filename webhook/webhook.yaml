@@ -130,3 +130,20 @@ spec:
             key: bridgeUrl
       subscriptionID: 3c29d799-45cb-450f-bcc5-376fea867ff9
       sendFinished: true
+    - type: sh.keptn.event.setfeature.triggered
+      requests:
+        - "curl --header 'Authorization: token
+          {{.env.secret_githubsecret_GITHUBTOKEN}}' --request POST --data
+          '{\"event_type\":\"test\",\"client_payload\":{\"type\":\"{{.type}}\",\
+          \"project\":\"{{.data.project}}\",\"service\":\"{{.data.service}}\",\
+          \"stage\":\"{{.data.stage}}\",\"feature\":\"{{.feature}}\",\"id\":\"{\
+          {.id}}\"}}'
+          https://api.github.com/repos/dt-robertjahn/rob00334-release-demo/disp\
+          atches"
+      envFrom:
+        - name: secret_githubsecret_GITHUBTOKEN
+          secretRef:
+            name: github-secret
+            key: GITHUBTOKEN
+      subscriptionID: 533de068-54a5-4e80-91a4-831ebfca13d3
+      sendFinished: false
