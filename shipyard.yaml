@@ -12,6 +12,13 @@ spec:
         properties:
           timeframe: "5m"
       - name: notifyslo
+    - name: remediate
+      tasks:
+      - name: setfeature
+      - name: evaluation
+        properties:
+          timeframe: "5m"
+      - name: notifyslo      
     - name: incident
       tasks:
       - name: openticket
