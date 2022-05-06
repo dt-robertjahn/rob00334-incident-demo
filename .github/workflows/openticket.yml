@@ -1,4 +1,4 @@
-name: webhook interactive example
+name: Open incident ticket
 on:
   repository_dispatch:
     types: 
