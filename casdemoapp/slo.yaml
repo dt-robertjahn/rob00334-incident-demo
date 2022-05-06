@@ -59,7 +59,6 @@ objectives:
   displayName: ""
   pass:
   - criteria:
-    - <+10%
     - <2
   warning:
   - criteria:
