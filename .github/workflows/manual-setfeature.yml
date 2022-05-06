@@ -16,5 +16,5 @@ jobs:
     - name: set feature
       run: |
         echo "Setting feature to number: ${{ github.event.inputs.feature }}"
-        curl ${{ secrets.APP_BASE_URL }}/api/feature?newFeatureNumber=${{ github.event.client_payload.feature }}
+        curl ${{ secrets.APP_BASE_URL }}/api/feature?newFeatureNumber=${{ github.event.inputs.feature }}
   
