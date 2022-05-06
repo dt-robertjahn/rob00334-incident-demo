@@ -1,0 +1,25 @@
+name: Manual set feature
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Feature to set'
+        default: '1'
+        required: true
+
+name: set feature flag
+on:
+  repository_dispatch:
+    types: 
+      - setfeature
+jobs:
+  openticket:
+    name: setfeature
+    runs-on: ubuntu-latest
+    steps:
+    - name: set feature
+      run: |
+        echo "Setting feature to number: ${{ github.event.inputs.feature }}"
+        curl ${{ secrets.APP_BASE_URL }}/api/feature?newFeatureNumber=${{ github.event.client_payload.feature }}
+  
