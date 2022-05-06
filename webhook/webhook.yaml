@@ -99,3 +99,28 @@ spec:
           https://webhook.site/2be34b4b-8a90-47cd-ba9f-a3e237e90765
       subscriptionID: e335d827-0ed0-4349-a50b-e51284359394
       sendFinished: true
+    - type: sh.keptn.event.notifyslo.triggered
+      requests:
+        - "curl --header 'Accept: application/vnd.pagerduty+json' --header
+          'Authorization: Token token={{.env.secret_pagerduty_apitoken}}'
+          --header 'Content-Type: application/json' --header 'From:
+          rob.jahn@dynatrace.com' --request POST --data
+          '{\"note\":{\"content\":\"Gather SLO Information\\nProject:
+          {{.data.project}}\\nService: {{.data.service}}\\nStage:
+          {{.data.stage}}\\nResult: {{.data.evaluation.result}}\\nScore:
+          {{.data.evaluation.score}}\\nBridge:
+          {{.env.secret_bridge_url}}/evaluation/{{.shkeptncontext}}/{{.data.sta\
+          ge}}\"}}'
+          https://api.pagerduty.com/incidents/{{.data.openticket.incidentID}}/n\
+          otes"
+      envFrom:
+        - name: secret_bridge_url
+          secretRef:
+            name: bridge
+            key: url
+        - name: secret_pagerduty_apitoken
+          secretRef:
+            name: pagerduty
+            key: api-token
+      subscriptionID: 539ffa72-c336-4aac-8068-94a4826f3ea0
+      sendFinished: true
