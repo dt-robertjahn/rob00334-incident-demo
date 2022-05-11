@@ -115,3 +115,21 @@ spec:
             key: token
       subscriptionID: 9b8f7fb2-7deb-419c-b8ec-28c8bae3827f
       sendFinished: true
+    - type: sh.keptn.event.notifyslo.triggered
+      requests:
+        - "curl --header 'Content-Type: application/json' --request POST --data
+          '{\"jiraKey\":\"{{.data.openticket.incidentNumber}}\",\"jiraMessage\":\
+          \"SLO Evaluation for Project: {{.data.project}} Stage: {{.data.stage}}
+          Service:
+          {{.data.service}}\",\"result\":\"{{.data.result}}\",\"bridge\":\"{{.e\
+          nv.secret_bridge_url}}/evaluation/{{.shkeptncontext}}/{{.data.stage}}\
+          \"}'
+          https://automation.atlassian.com/pro/hooks/9be53cf516a9e3e0af08d3bd0c\
+          c215d77c0b985e"
+      envFrom:
+        - name: secret_bridge_url
+          secretRef:
+            name: bridge
+            key: url
+      subscriptionID: 32adcf5e-c436-4cc2-ac19-89f36bfb0bcc
+      sendFinished: true
