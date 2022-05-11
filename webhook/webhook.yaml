@@ -148,3 +148,18 @@ spec:
             key: GITHUBTOKEN
       subscriptionID: 533de068-54a5-4e80-91a4-831ebfca13d3
       sendFinished: false
+    - type: sh.keptn.event.openticket.triggered
+      requests:
+        - >-
+          curl --header 'Content-type: application/json' --request POST --data
+          '{"type":"{{.type}}","shkeptncontext":"{{.shkeptncontext}}","id":"{{.id}}","data":{"project":"{{.data.project}}","service":"{{.data.service}}","stage":"{{.data.stage}}","bridge":"{{.env.secret_bridge_url}}/project/{{.data.project}}/sequence/{{.shkeptncontext}}","incident":{"ProblemID":"{{.data.incident.ProblemID}}","PID":"{{.data.incident.PID}}","ProblemURL":"{{.data.incident.ProblemURL}}","Tags":"{{.data.incident.Tags}}","ProblemTitle":"{{.data.incident.ProblemTitle}}","State":"{{.data.incident.State}}"}}}'
+          https://automation.atlassian.com/pro/hooks/f43475548fea82de26cacbe3dd4b7c1ced7638ff
+
+          https://automation.atlassian.com/pro/hooks/f43475548fea82de26cacbe3dd4b7c1ced7638ff
+      envFrom:
+        - name: secret_bridge_url
+          secretRef:
+            name: bridge
+            key: url
+      subscriptionID: d14ba0ae-d186-432b-a127-2ae81e190aca
+      sendFinished: false
