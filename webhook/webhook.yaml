@@ -118,3 +118,28 @@ spec:
             key: token
       subscriptionID: 9b8f7fb2-7deb-419c-b8ec-28c8bae3827f
       sendFinished: true
+    - type: sh.keptn.event.notifyticket.triggered
+      requests:
+        - "curl --request POST --data 'payload={  \"blocks\":
+          [    {      \"type\" : \"section\",      \"text\" : {        \"type\":
+          \"mrkdwn\",        \"text\" : \"New PagerDuty Incident
+          Created\"      }    },    {      \"type\" : \"section\",      \"text\"
+          : {        \"type\": \"mrkdwn\",        \"text\" : \"*Project:*
+          {{.data.project}}\\n*Service:* {{.data.service}}\\n*Stage:*
+          {{.data.stage}}\\n*Type:* {{.type}}\\n*Incident ID*:
+          {{.data.openticket.incidentNumber}}\\n*Incident Url*:
+          {{.data.openticket.incidentUrl}}\\n*Bridge:*
+          {{.env.secret_slackwebhook_bridgeUrl}}/trace/{{.shkeptncontext}}\"      \
+          }    }  ]}'
+          https://hooks.slack.com/services/{{.env.secret_slackwebhook_token}}"
+      envFrom:
+        - name: secret_slackwebhook_token
+          secretRef:
+            name: slack-webhook
+            key: token
+        - name: secret_slackwebhook_bridgeUrl
+          secretRef:
+            name: slack-webhook
+            key: bridgeUrl
+      subscriptionID: 539ffa72-c336-4aac-8068-94a4826f3ea0
+      sendFinished: true
