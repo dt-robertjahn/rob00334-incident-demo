@@ -52,31 +52,6 @@ spec:
             key: url
       subscriptionID: d14ba0ae-d186-432b-a127-2ae81e190aca
       sendFinished: false
-    - type: sh.keptn.event.evaluation.finished
-      requests:
-        - "curl --header 'Accept: application/vnd.pagerduty+json' --header
-          'Authorization: Token token={{.env.secret_pagerduty_apitoken}}'
-          --header 'Content-Type: application/json' --header 'From:
-          rob.jahn@dynatrace.com' --request POST --data
-          '{\"jiraKey\":\"{{.data.release.jiraKey}}\",\"jiraMessage\":\"SLO
-          Evaluation for Project: {{.data.project}} Stage: {{.data.stage}}
-          Service:
-          {{.data.service}}\",\"result\":\"{{.data.result}}\",\"bridge\":\"{{.e\
-          nv.secret_bridge_url}}/evaluation/{{.shkeptncontext}}/{{.data.stage}}\
-          \"}'
-          https://automation.atlassian.com/pro/hooks/9be53cf516a9e3e0af08d3bd0c\
-          c215d77c0b985e"
-      envFrom:
-        - name: secret_bridge_url
-          secretRef:
-            name: bridge
-            key: url
-        - name: secret_pagerduty_apitoken
-          secretRef:
-            name: pagerduty
-            key: api-token
-      subscriptionID: 32adcf5e-c436-4cc2-ac19-89f36bfb0bcc
-      sendFinished: false
     - type: sh.keptn.event.setfeature.triggered
       requests:
         - "curl --header 'Authorization: token
