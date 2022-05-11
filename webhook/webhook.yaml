@@ -126,3 +126,20 @@ spec:
             key: api-token
       subscriptionID: 32adcf5e-c436-4cc2-ac19-89f36bfb0bcc
       sendFinished: false
+    - type: sh.keptn.event.setfeature.triggered
+      requests:
+        - "curl --header 'Authorization: token
+          {{.env.secret_githubsecret_GITHUBTOKEN}}' --request POST --data
+          '{\"event_type\":\"setfeature\",\"client_payload\":{\"type\":\"{{.typ\
+          e}}\",\"project\":\"{{.data.project}}\",\"service\":\"{{.data.service\
+          }}\",\"stage\":\"{{.data.stage}}\",\"feature\":\"1\",\"id\":\"{{.id}}\
+          \",\"shkeptncontext\":\"{{.shkeptncontext}}\"}}'
+          https://api.github.com/repos/dt-robertjahn/rob00334-incident-demo/dis\
+          patches"
+      envFrom:
+        - name: secret_githubsecret_GITHUBTOKEN
+          secretRef:
+            name: github-secret
+            key: GITHUBTOKEN
+      subscriptionID: 533de068-54a5-4e80-91a4-831ebfca13d3
+      sendFinished: false
