@@ -15,7 +15,7 @@ spec:
     - name: incident
       tasks:
       - name: openticket
-      - name: remediate
+      - name: setfeature
       - name: notifyticket
       - name: evaluation
         properties:
