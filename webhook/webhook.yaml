@@ -4,33 +4,6 @@ metadata:
   name: webhook-configuration
 spec:
   webhooks:
-    - type: sh.keptn.event.evaluation.finished
-      requests:
-        - "curl --request POST --data 'payload={  \"blocks\":
-          [    {      \"type\" : \"section\",      \"text\" : {        \"type\":
-          \"mrkdwn\",        \"text\" : \"On Demand SLO
-          Results\"      }    },    {      \"type\" : \"section\",      \"text\"
-          : {        \"type\": \"mrkdwn\",        \"text\" : \"*Project:*
-          {{.data.project}}\\n*Service:* {{.data.service}}\\n*Stage:*
-          {{.data.stage}}\\n*Result:* {{.data.result}}
-          ({{.data.evaluation.score}} / 100)\\n*Bridge:*
-          {{.env.secret_slackwebhook_bridgeUrl}}/trace/{{.shkeptncontext}}\\n*P\
-          agerDuty Incident ID*: {{.data.openticket.incidentID}}\\n*PagerDuty
-          Url*:
-          https://dev-dt-demos.pagerduty.com/incidents/{{.data.openticket.incid\
-          entID}}\"      }    }  ]}'
-          https://hooks.slack.com/services/{{.env.secret_slackwebhook_token}}"
-      envFrom:
-        - name: secret_slackwebhook_token
-          secretRef:
-            name: slack-webhook
-            key: token
-        - name: secret_slackwebhook_bridgeUrl
-          secretRef:
-            name: slack-webhook
-            key: bridgeUrl
-      subscriptionID: 3c29d799-45cb-450f-bcc5-376fea867ff9
-      sendFinished: true
     - type: sh.keptn.event.openticket.triggered
       requests:
         - "curl --header 'Content-type: application/json' --request POST --data
