@@ -3,7 +3,7 @@ indicators:
   host_cpu: entitySelector=type(HOST)&metricSelector=builtin:host.cpu.usage:splitBy():avg:names
   host_disk_queue: entitySelector=type(HOST)&metricSelector=builtin:host.disk.queueLength:splitBy():max:names
   host_mem: entitySelector=type(HOST)&metricSelector=builtin:host.mem.usage:splitBy():avg:names
-  proc_count: entitySelector=type(PROCESS_GROUP_INSTANCE)&metricSelector=builtin:tech.generic.processCount:splitBy():avg:names
+  proc_count: ""
   process_cpu: entitySelector=type(PROCESS_GROUP_INSTANCE)&metricSelector=builtin:tech.generic.cpu.usage:splitBy():avg:names
   process_memory: MV2;Byte;entitySelector=type(PROCESS_GROUP_INSTANCE)&metricSelector=builtin:tech.generic.mem.workingSetSize:splitBy():avg:names
   svc_fr: entitySelector=type(SERVICE)&metricSelector=builtin:service.errors.server.rate:splitBy():avg:names
